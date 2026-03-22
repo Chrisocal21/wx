@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { fetchWeather, type FetchWeatherParams } from '../services/weather';
 import type { WeatherData } from '../types/weather';
 
@@ -14,6 +14,11 @@ export function useWeather(params: FetchWeatherParams | null) {
     loading: false,
     error: null,
   });
+  const [refetchTrigger, setRefetchTrigger] = useState(0);
+
+  const refetch = useCallback(() => {
+    setRefetchTrigger(prev => prev + 1);
+  }, []);
 
   useEffect(() => {
     if (!params) return;
@@ -41,7 +46,7 @@ export function useWeather(params: FetchWeatherParams | null) {
     return () => {
       cancelled = true;
     };
-  }, [params?.latitude, params?.longitude, params?.temperatureUnit]);
+  }, [params?.latitude, params?.longitude, params?.temperatureUnit, refetchTrigger]);
 
-  return state;
+  return { ...state, refetch };
 }

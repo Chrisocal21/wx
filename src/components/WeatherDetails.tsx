@@ -1,4 +1,5 @@
 import type { WeatherData } from '../types/weather';
+import { formatDistance, formatNumber } from '../utils/formatters';
 
 interface WeatherDetailsProps {
   weatherData: WeatherData;
@@ -22,8 +23,7 @@ export default function WeatherDetails({ weatherData }: WeatherDetailsProps) {
 
   const formatVisibility = (visibilityMeters?: number) => {
     if (!visibilityMeters) return 'N/A';
-    const miles = (visibilityMeters / 1609.34).toFixed(1);
-    return `${miles} mi`;
+    return `${formatDistance(visibilityMeters)} mi`;
   };
 
   return (
@@ -36,7 +36,7 @@ export default function WeatherDetails({ weatherData }: WeatherDetailsProps) {
             <div className="p-2 sm:p-3 text-center">
               <div className="text-white/70 text-xs mb-1.5 sm:mb-2 font-medium uppercase tracking-wide">UV Index</div>
               <div className="text-white text-xl sm:text-2xl font-semibold mb-0.5 sm:mb-1 tabular-nums">
-                {current.uv_index.toFixed(0)}
+                {formatNumber(current.uv_index, 0)}
               </div>
               <div className="text-white/60 text-xs font-medium">
                 {getUVLevel(current.uv_index)}

@@ -1,6 +1,7 @@
 import type { WeatherData, TemperatureUnit } from '../types/weather';
 import { getWeatherDescription, getWeatherCondition } from '../utils/weather';
 import WeatherIcon from './WeatherIcon';
+import WindCompass from './WindCompass';
 
 interface CurrentWeatherProps {
   weatherData: WeatherData;
@@ -48,7 +49,7 @@ export default function CurrentWeather({
       </div>
 
       {/* Additional Current Data */}
-      <div className="grid grid-cols-3 gap-3 sm:gap-4 mt-8 sm:mt-10 max-w-md mx-auto">
+      <div className="grid grid-cols-2 gap-3 sm:gap-4 mt-8 sm:mt-10 max-w-md mx-auto">
         <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-3 sm:p-4">
           <div className="text-xs text-white/70 mb-1.5 sm:mb-2 font-medium uppercase tracking-wide">Feels Like</div>
           <div className="text-xl sm:text-2xl font-semibold tabular-nums">{Math.round(current.apparent_temperature)}°</div>
@@ -57,9 +58,11 @@ export default function CurrentWeather({
           <div className="text-xs text-white/70 mb-1.5 sm:mb-2 font-medium uppercase tracking-wide">Humidity</div>
           <div className="text-xl sm:text-2xl font-semibold tabular-nums">{current.relative_humidity_2m}%</div>
         </div>
-        <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-3 sm:p-4">
-          <div className="text-xs text-white/70 mb-1.5 sm:mb-2 font-medium uppercase tracking-wide">Wind</div>
-          <div className="text-xl sm:text-2xl font-semibold tabular-nums">{Math.round(current.wind_speed_10m)}<span className="text-sm sm:text-base ml-0.5">mph</span></div>
+        <div className="col-span-2 bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-5 flex justify-center">
+          <WindCompass 
+            direction={current.wind_direction_10m} 
+            speed={Math.round(current.wind_speed_10m)} 
+          />
         </div>
       </div>
     </div>

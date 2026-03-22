@@ -26,6 +26,21 @@ A clean, beautiful, ad-free weather app built with React, Vite, and Tailwind CSS
 - 🏙️ Shows city, state/province, and country
 - 🕐 Local time display for each location
 
+### Phase 3 — PWA & Polish ✅
+- 📲 Progressive Web App (installable)
+- 💨 Offline support with service worker
+- ⚡ Loading skeleton screens
+- 🎯 Improved error handling
+- 📥 Install prompt for mobile/desktop
+- 🎨 Smooth animations and transitions
+
+### Enhancements ✅
+- 🧭 Wind direction compass visualization
+- ⌨️ Keyboard shortcuts (/ for search, u for units, l for locations, Esc to close)
+- 🔄 Pull-to-refresh on mobile
+- 🔢 Properly formatted numbers with thousand separators
+- 🔍 SEO meta tags with Open Graph and Twitter Card support
+
 ## Tech Stack
 
 - **Frontend**: React + TypeScript
@@ -57,6 +72,22 @@ npm run preview
 
 The app will be available at `http://localhost:3000`
 
+## Deployment
+
+The app is deployed on [Vercel](https://vercel.com) with automatic deployments from the main branch.
+
+### Deploy Your Own
+
+1. Push your code to GitHub
+2. Import the project to Vercel
+3. Vercel will automatically detect Vite and configure the build
+4. Your app will be live with PWA support, automatic HTTPS, and global CDN
+
+The PWA will automatically work on Vercel with:
+- Service worker for offline caching
+- Install prompts on supported browsers
+- Automatic HTTPS (required for PWA features)
+
 ## Project Structure
 
 ```
@@ -82,5 +113,5 @@ Personal project — not currently open source.
 
 ---
 
-Built by Chris · Phase 2 Complete
+Built by Chris · Enhanced & Production-Ready
 
