@@ -1,5 +1,5 @@
 import type { HourlyWeather, TemperatureUnit } from '../types/weather';
-import { getWeatherDescription, getWeatherCondition } from '../utils/weather';
+import { getWeatherCondition } from '../utils/weather';
 import WeatherIcon from './WeatherIcon';
 
 interface HourlyForecastProps {
