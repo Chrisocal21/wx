@@ -1,17 +1,17 @@
-import type { WeatherData, Location, TemperatureUnit } from '../types/weather';
+import type { WeatherData, TemperatureUnit } from '../types/weather';
 import { getWeatherDescription, getWeatherCondition } from '../utils/weather';
 import WeatherIcon from './WeatherIcon';
 
 interface CurrentWeatherProps {
   weatherData: WeatherData;
-  location: Location;
+  locationName: string;
   temperatureUnit: TemperatureUnit;
   onToggleUnit: () => void;
 }
 
 export default function CurrentWeather({
   weatherData,
-  location,
+  locationName,
   temperatureUnit,
   onToggleUnit,
 }: CurrentWeatherProps) {
@@ -22,7 +22,7 @@ export default function CurrentWeather({
     <div className="text-white text-center mb-8 sm:mb-12">
       {/* Location and Unit Toggle */}
       <div className="flex justify-between items-start mb-8 sm:mb-10">
-        <h2 className="text-xl sm:text-2xl font-semibold tracking-tight">{location.name}</h2>
+        <h2 className="text-xl sm:text-2xl font-semibold tracking-tight">{locationName}</h2>
         <button
           onClick={onToggleUnit}
           className="px-4 py-2 sm:py-1.5 rounded-full bg-white/20 hover:bg-white/30 active:bg-white/40 transition-colors text-sm font-medium touch-manipulation"

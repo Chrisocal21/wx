@@ -6,15 +6,25 @@ A clean, beautiful, ad-free weather app built with React, Vite, and Tailwind CSS
 
 ## Features
 
-### Phase 1 — MVP (Current)
+### Phase 1 — MVP ✅
 - 🌡️ Current conditions with real-time temperature
-- 📍 Automatic location detection
-- ⏰ Hourly forecast strip
+- 📍 Automatic location detection with reverse geocoding
+- ⏰ Hourly forecast strip with current hour highlight
 - 📅 7-day forecast
 - 🎨 Condition-reactive backgrounds (clear/cloudy/rain/storm/sunrise/sunset)
 - 🌡️ °F / °C toggle
 - 📱 Mobile-first responsive design
 - ⚡ Animated SVG weather icons
+- 🌅 UV index, visibility, sunrise/sunset times
+
+### Phase 2 — Locations & Search ✅
+- 🔍 City search with autocomplete
+- ⭐ Star favorite locations
+- 📌 Multiple saved locations
+- 🔄 Quick location switching
+- 💾 Persistent storage (localStorage)
+- 🏙️ Shows city, state/province, and country
+- 🕐 Local time display for each location
 
 ## Tech Stack
 
@@ -45,7 +55,7 @@ npm run build
 npm run preview
 ```
 
-The app will be available at `http://localhost:5173`
+The app will be available at `http://localhost:3000`
 
 ## Project Structure
 
@@ -62,11 +72,9 @@ src/
 ## Data Sources
 
 - **Weather Data**: [Open-Meteo](https://open-meteo.com/) - Free weather API
-- **Icons**: [Meteocons](https://github.com/basmilius/weather-icons) by Bas Milius
-
-## Roadmap
-
-See [FEATURE_MAP.md](./FEATURE_MAP.md) for the complete feature roadmap.
+- **Geocoding**: [Open-Meteo Geocoding API](https://open-meteo.com/en/docs/geocoding-api) - City search
+- **Reverse Geocoding**: [BigDataCloud](https://www.bigdatacloud.com/) - Location name from coordinates
+- **Icons**: Custom SVG weather icons
 
 ## License
 
@@ -74,27 +82,5 @@ Personal project — not currently open source.
 
 ---
 
-Built by Chris · Phase 1 MVP
-import reactDom from 'eslint-plugin-react-dom'
+Built by Chris · Phase 2 Complete
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```

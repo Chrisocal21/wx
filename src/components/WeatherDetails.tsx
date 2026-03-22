@@ -33,7 +33,7 @@ export default function WeatherDetails({ weatherData }: WeatherDetailsProps) {
         <div className="grid grid-cols-2 gap-3 sm:gap-4">
           {/* UV Index */}
           {current.uv_index !== undefined && (
-            <div className="p-2 sm:p-3">
+            <div className="p-2 sm:p-3 text-center">
               <div className="text-white/70 text-xs mb-1.5 sm:mb-2 font-medium uppercase tracking-wide">UV Index</div>
               <div className="text-white text-xl sm:text-2xl font-semibold mb-0.5 sm:mb-1 tabular-nums">
                 {current.uv_index.toFixed(0)}
@@ -46,7 +46,7 @@ export default function WeatherDetails({ weatherData }: WeatherDetailsProps) {
 
           {/* Visibility */}
           {current.visibility && (
-            <div className="p-2 sm:p-3">
+            <div className="p-2 sm:p-3 text-center">
               <div className="text-white/70 text-xs mb-1.5 sm:mb-2 font-medium uppercase tracking-wide">Visibility</div>
               <div className="text-white text-xl sm:text-2xl font-semibold tabular-nums">
                 {formatVisibility(current.visibility)}
@@ -55,7 +55,7 @@ export default function WeatherDetails({ weatherData }: WeatherDetailsProps) {
           )}
 
           {/* Sunrise */}
-          <div className="p-2 sm:p-3">
+          <div className="p-2 sm:p-3 text-center">
             <div className="text-white/70 text-xs mb-1.5 sm:mb-2 font-medium uppercase tracking-wide">Sunrise</div>
             <div className="text-white text-xl sm:text-2xl font-semibold tabular-nums">
               {formatTime(daily.sunrise[0])}
@@ -63,7 +63,7 @@ export default function WeatherDetails({ weatherData }: WeatherDetailsProps) {
           </div>
 
           {/* Sunset */}
-          <div className="p-2 sm:p-3">
+          <div className="p-2 sm:p-3 text-center">
             <div className="text-white/70 text-xs mb-1.5 sm:mb-2 font-medium uppercase tracking-wide">Sunset</div>
             <div className="text-white text-xl sm:text-2xl font-semibold tabular-nums">
               {formatTime(daily.sunset[0])}

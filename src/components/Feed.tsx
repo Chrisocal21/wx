@@ -1,4 +1,4 @@
-import type { WeatherData, Location, TemperatureUnit } from '../types/weather';
+import type { WeatherData, TemperatureUnit } from '../types/weather';
 import CurrentWeather from './CurrentWeather';
 import HourlyForecast from './HourlyForecast';
 import DailyForecast from './DailyForecast';
@@ -7,12 +7,12 @@ import { getWeatherCondition, getTimeOfDayCondition } from '../utils/weather';
 
 interface FeedProps {
   weatherData: WeatherData;
-  location: Location;
+  locationName: string;
   temperatureUnit: TemperatureUnit;
   onToggleUnit: () => void;
 }
 
-export default function Feed({ weatherData, location, temperatureUnit, onToggleUnit }: FeedProps) {
+export default function Feed({ weatherData, locationName, temperatureUnit, onToggleUnit }: FeedProps) {
   // Determine background based on current conditions and time of day
   const condition = getWeatherCondition(weatherData.current.weathercode);
   const now = new Date();
@@ -39,7 +39,7 @@ export default function Feed({ weatherData, location, temperatureUnit, onToggleU
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 md:py-10 max-w-2xl">
         <CurrentWeather
           weatherData={weatherData}
-          location={location}
+          locationName={locationName}
           temperatureUnit={temperatureUnit}
           onToggleUnit={onToggleUnit}
         />

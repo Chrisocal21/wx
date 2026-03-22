@@ -30,13 +30,13 @@ export default function DailyForecast({ daily }: DailyForecastProps) {
           return (
             <div
               key={date}
-              className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-5 flex items-center gap-3 sm:gap-4"
+              className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-5 flex items-center justify-between gap-3 sm:gap-4"
             >
-              <div className="flex-1 text-white font-semibold min-w-[50px] sm:min-w-[60px] text-sm sm:text-base">
+              <div className="flex-1 text-white font-semibold text-center min-w-[50px] sm:min-w-[60px] text-sm sm:text-base">
                 {getDayName(date, index)}
               </div>
               
-              <div className="flex items-center gap-2 sm:gap-3 flex-1">
+              <div className="flex items-center justify-center gap-2 sm:gap-3 flex-1">
                 <WeatherIcon 
                   condition={getWeatherCondition(weatherCode)} 
                   size={24} 
@@ -47,13 +47,15 @@ export default function DailyForecast({ daily }: DailyForecastProps) {
                 </span>
               </div>
 
-              {precipitation > 0 && (
-                <div className="text-blue-200 text-xs sm:text-sm font-medium flex-shrink-0">
+              {precipitation > 0 ? (
+                <div className="text-blue-200 text-xs sm:text-sm font-medium flex-shrink-0 w-10 text-center">
                   {precipitation}%
                 </div>
+              ) : (
+                <div className="w-10 flex-shrink-0" />
               )}
               
-              <div className="flex gap-2 sm:gap-3 items-center tabular-nums flex-shrink-0">
+              <div className="flex gap-2 sm:gap-3 items-center justify-center tabular-nums flex-shrink-0 min-w-[80px]">
                 <span className="text-white text-base sm:text-lg font-semibold">{maxTemp}°</span>
                 <span className="text-white/60 text-base sm:text-lg font-medium">{minTemp}°</span>
               </div>
